@@ -8,7 +8,7 @@ export default [
 		input: 'src/main.js',
 		output: {
 			name: 'howLongUntilLunch',
-			file: pkg.browser,
+			file: pkg.browser["dist/how-long-till-lunch.cjs.js"],
 			format: 'umd'
 		},
 		plugins: [
