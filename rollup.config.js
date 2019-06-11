@@ -1,5 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import inject from "rollup-plugin-inject";
 import pkg from './package.json';
 
 export default [
@@ -12,8 +13,20 @@ export default [
 			format: 'umd'
 		},
 		plugins: [
-			resolve(), // so Rollup can find `ms`
-			commonjs() // so Rollup can convert `ms` to an ES module
+			// so Rollup can find `ms`
+			resolve({
+				mainFields: ["module", "browser"],
+				preferBuiltins: false
+			}),
+			
+			// so Rollup can convert `ms` to an ES module
+			commonjs(),
+
+			inject({
+				modules: {
+				  Buffer: ["buffer", "Buffer"]
+				}
+			}),
 		]
 	},
 
