@@ -15,7 +15,7 @@ export default [
 		plugins: [
 			// so Rollup can find `ms`
 			resolve({
-				mainFields: ["module", "browser"],
+				mainFields: ["module", "browser", "main"],
 				preferBuiltins: false
 			}),
 			
