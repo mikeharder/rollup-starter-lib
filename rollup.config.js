@@ -12,7 +12,7 @@ export default [
 			format: 'umd'
 		},
 		plugins: [
-			resolve(), // so Rollup can find `ms`
+			resolve({preferBuiltins: false}), // so Rollup can find `ms`
 			commonjs() // so Rollup can convert `ms` to an ES module
 		]
 	},
